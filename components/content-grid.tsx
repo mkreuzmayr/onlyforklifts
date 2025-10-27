@@ -15,6 +15,7 @@ const teaserContent = [
   {
     title: "Ich mach's sanft",
     description: "Schau zu, wie ich 2 Tonnen hebe als wär's nix... 😏",
+    type: 'image',
     image: '/images/img1.png',
     likes: 247,
     comments: 38,
@@ -22,6 +23,7 @@ const teaserContent = [
   {
     title: 'Ohne Warnweste und Helm',
     description: 'Stapler-Rennen nach Feierabend. 🚨',
+    type: 'image',
     image: '/images/img2.png',
     likes: 387,
     comments: 75,
@@ -30,29 +32,50 @@ const teaserContent = [
     title: "Auch wenn's eng wird komm ich zurecht",
     description: 'Du glaubst nicht, wie ich in diese Lagergasse passe. 🤯',
     locked: true,
+    type: 'image',
     image: '/images/img3.png',
   },
   {
     title: 'Paletten Stapel der Meisterklasse',
     description: 'Meine Technik wird dich umhauen. 💪',
     locked: true,
+    type: 'image',
     image: '/images/img1.png',
   },
   {
     title: 'Staplerfahrer hinter dem Steuer',
     description: 'Exklusiver und unzensierter POV-Content. 🎥',
-    locked: true,
-
-    image: '/images/img2.png',
+    type: 'video',
+    video: '/videos/vid1.mp4',
+    likes: 183,
+    comments: 45,
   },
   {
     title: 'Nachtschichten sind keine Seltenheit',
     description: 'Späte Sessions auf der Rampe. 🌙',
-
     locked: true,
+    type: 'image',
     image: '/images/img3.png',
   },
-];
+] satisfies (
+  | {
+      title: string;
+      description: string;
+      type: 'image';
+      locked?: boolean;
+      likes?: number;
+      comments?: number;
+      image: string;
+    }
+  | {
+      title: string;
+      description: string;
+      type: 'video';
+      likes?: number;
+      comments?: number;
+      video: string;
+    }
+)[];
 
 export function ContentGrid() {
   return (
@@ -74,17 +97,30 @@ export function ContentGrid() {
               <div className="absolute inset-0 bg-linear-to-br from-secondary to-background" />
             )}
 
-            <Image
-              src={item.image}
-              width={400}
-              height={400}
-              alt={item.title}
-              className={cn(
-                'h-full w-full object-cover',
-                item.locked &&
-                  'opacity-30 blur-sm transition-all group-hover/item:blur-none group-hover/item:opacity-50'
-              )}
-            />
+            {item.type === 'image' ? (
+              <Image
+                src={item.image}
+                width={400}
+                height={400}
+                alt={item.title}
+                className={cn(
+                  'h-full w-full object-cover',
+                  item.locked &&
+                    'opacity-30 blur-sm transition-all group-hover/item:blur-none group-hover/item:opacity-50'
+                )}
+              />
+            ) : (
+              <video
+                src={item.video}
+                width={400}
+                height={400}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="h-full w-full object-cover"
+              />
+            )}
 
             {item.locked ? (
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gray-900/70 p-4 text-center sm:gap-3">
