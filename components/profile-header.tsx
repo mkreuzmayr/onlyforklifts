@@ -24,29 +24,26 @@ export function ProfileHeader() {
 
         <div className="flex-1 space-y-4">
           <div>
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-balance text-foreground">
-              Staplermeister Lukas
+            <h1 className="text-lg md:text-3xl lg:text-4xl font-bold text-balance text-foreground">
+              Lukas W.
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground">
+            <p className="text-sm md:text-lg text-muted-foreground">
               @onlyforklifts
             </p>
           </div>
 
-          <div className="flex gap-6 text-sm">
-            <div>
-              <span className="font-bold text-foreground">247</span>
-              <br />
-              <span className="text-muted-foreground">Beiträge</span>
+          <div className="flex flex-col md:flex-row md:gap-6 gap-1 text-xs md:text-sm lg:text-base">
+            <div className="flex md:flex-col gap-2 md:gap-0">
+              <div className="font-bold text-foreground">247</div>
+              <div className="text-muted-foreground">Beiträge</div>
             </div>
-            <div>
-              <span className="font-bold text-foreground">12.4K</span>
-              <br />
-              <span className="text-muted-foreground">Hubvorgänge</span>
+            <div className="flex md:flex-col gap-2 md:gap-0">
+              <div className="font-bold text-foreground">12.4K</div>
+              <div className="text-muted-foreground">Hub&shy;vorgänge</div>
             </div>
-            <div>
-              <span className="font-bold text-foreground">3.2K</span>
-              <br />
-              <span className="text-muted-foreground">Paletten bewegt</span>
+            <div className="flex md:flex-col gap-2 md:gap-0">
+              <div className="font-bold text-foreground">3.2K</div>
+              <div className="text-muted-foreground">Paletten bewegt</div>
             </div>
           </div>
 
@@ -65,7 +62,7 @@ export function ProfileHeader() {
       </div>
 
       <div className="lg:hidden">
-        <p className="text-pretty leading-relaxed text-foreground">
+        <p className="text-pretty leading-relaxed text-foreground text-sm">
           🏗️ Staplerfahrer & Händler | 30+ Jahre Erfahrung
           <br />
           💪 Hebt deine Stimmung (und Paletten)
