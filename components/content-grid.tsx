@@ -15,18 +15,20 @@ const teaserContent = [
   {
     title: "Ich mach's sanft",
     description: "Schau zu, wie ich 2 Tonnen hebe als wär's nix... 😏",
-    // locked: true,
     image: '/images/img1.png',
+    likes: 247,
+    comments: 38,
   },
   {
-    title: 'Auch wenns eng wird komm ich zurecht',
-    description: 'Du glaubst NICHT, wie ich durch diese Lagergasse passe. 🤯',
-    locked: true,
+    title: 'Ohne Warnweste und Helm',
+    description: 'Stapler-Rennen nach Feierabend. 🚨',
     image: '/images/img2.png',
+    likes: 387,
+    comments: 75,
   },
   {
-    title: 'Nachtschichten sind keine Seltenheit',
-    description: 'Späte Sessions auf der Rampe 🌙',
+    title: "Auch wenn's eng wird komm ich zurecht",
+    description: 'Du glaubst nicht, wie ich in diese Lagergasse passe. 🤯',
     locked: true,
     image: '/images/img3.png',
   },
@@ -44,8 +46,9 @@ const teaserContent = [
     image: '/images/img2.png',
   },
   {
-    title: 'Ohne Warnweste und Helm',
-    description: 'Illegale Stapler-Rennen nach Feierabend im Lager. 🚨',
+    title: 'Nachtschichten sind keine Seltenheit',
+    description: 'Späte Sessions auf der Rampe. 🌙',
+
     locked: true,
     image: '/images/img3.png',
   },
@@ -122,13 +125,13 @@ export function ContentGrid() {
                       <button className="group cursor-pointer flex items-center gap-1.5 transition-all hover:scale-110">
                         <Heart className="h-6 w-6 text-white transition-all group-hover:fill-red-500 group-hover:text-red-500" />
                         <span className="text-sm font-medium text-white">
-                          247
+                          {item.likes}
                         </span>
                       </button>
                       <button className="group cursor-pointer flex items-center gap-1.5 transition-all hover:scale-110">
                         <MessageCircle className="h-6 w-6 text-white transition-all group-hover:text-blue-400" />
                         <span className="text-sm font-medium text-white">
-                          38
+                          {item.comments}
                         </span>
                       </button>
                       <button className="group cursor-pointer flex items-center gap-1.5 transition-all hover:scale-110">
