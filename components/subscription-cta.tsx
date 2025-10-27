@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, buttonVariants } from '@/components/ui/button';
 import {
   Card,
@@ -8,6 +10,7 @@ import {
 } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+import { toast } from 'sonner';
 
 const benefits = [
   'Unbegrenzter Zugang zu allen Stapler-Inhalten',
@@ -48,20 +51,21 @@ export function SubscriptionCTA() {
             <div className="text-sm text-muted-foreground">pro Monat</div>
           </div>
 
-          {/* http://paypal.me/lukasweixelbaumer/9.99 */}
-          <Link
-            href="#checkout"
-            className={buttonVariants({
-              variant: 'default',
-              size: 'lg',
-              className: 'w-full text-lg font-bold',
-            })}
+          <Button
+            variant="default"
+            size="lg"
+            className="w-full text-lg font-bold cursor-pointer"
+            onClick={() => {
+              toast.error(
+                'Wir erhalten momentan sehr viele Anfragen. Bitte versuchen Sie es später erneut.'
+              );
+            }}
           >
             Jetzt Abonnieren
-          </Link>
+          </Button>
 
           <p className="text-center text-xs text-muted-foreground text-pretty">
-            {'Jederzeit kündbar. Kein Staplerschein erforderlich.'}
+            Jederzeit kündbar. Kein Staplerschein erforderlich.
           </p>
         </div>
 
